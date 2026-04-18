@@ -4,11 +4,15 @@ import { Ship } from 'lucide-react';
 interface ShipDetailsSectionProps {
   averageSpeed: string;
   setAverageSpeed: (value: string) => void;
+  maxFuel: string;
+  setmaxFuel: (value: string) => void;
 }
 
 const ShipDetailsSection: React.FC<ShipDetailsSectionProps> = ({
   averageSpeed,
   setAverageSpeed,
+  maxFuel,
+  setmaxFuel
 }) => {
   return (
     <section className="bg-white border border-cyan-200 rounded-2xl p-6 shadow-md">
@@ -30,6 +34,19 @@ const ShipDetailsSection: React.FC<ShipDetailsSectionProps> = ({
           type="number"
           value={averageSpeed}
           onChange={(e) => setAverageSpeed(e.target.value)}
+          placeholder="0"
+          className="w-full px-4 py-3 bg-white border border-slate-300 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition"
+        />
+      </div>
+      <div>
+        <label className="block text-sm font-medium text-slate-800 mb-2">
+          Max fuel – km
+        </label>
+
+        <input
+          type="number"
+          value={maxFuel}
+          onChange={(e) => setmaxFuel(e.target.value)}
           placeholder="0"
           className="w-full px-4 py-3 bg-white border border-slate-300 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition"
         />

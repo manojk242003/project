@@ -16,14 +16,15 @@ export default function Home() {
 
   /* ---------------- SHIP DETAILS ---------------- */
   const [averageSpeed, setAverageSpeed] = useState('');
+  const [maxFuel, setmaxFuel] = useState('');
 
   /* ---------------- VOYAGE DETAILS ---------------- */
-  const [startInputType, setStartInputType] = useState<'coordinates' | 'port'>('coordinates');
+  const [startInputType, setStartInputType] = useState<'coordinates' | 'port'>('port');
   const [startLatitude, setStartLatitude] = useState('');
   const [startLongitude, setStartLongitude] = useState('');
   const [startPort, setStartPort] = useState('');
 
-  const [destInputType, setDestInputType] = useState<'coordinates' | 'port'>('coordinates');
+  const [destInputType, setDestInputType] = useState<'coordinates' | 'port'>('port');
   const [destLatitude, setDestLatitude] = useState('');
   const [destLongitude, setDestLongitude] = useState('');
   const [destPort, setDestPort] = useState('');
@@ -74,6 +75,8 @@ export default function Home() {
     try {
       const payload: any = {
         averageSpeed: Number(averageSpeed),
+        maxFuel : Number(maxFuel),
+        mode: String("fastest")
       };
 
       if (startInputType === "coordinates") {
@@ -93,7 +96,7 @@ export default function Home() {
       } else {
         payload.goalCity = destPort;
       }
-
+      console.log(payload)
       const response = await fetch("http://localhost:8000/api/route", {
         method: "POST",
         headers: {
@@ -114,6 +117,7 @@ export default function Home() {
           routeData: data,
           userInput: {
             averageSpeed,
+            maxFuel,
             startPort,
             startLatitude,
             startLongitude,
@@ -209,6 +213,8 @@ export default function Home() {
               <ShipDetailsSection
                 averageSpeed={averageSpeed}
                 setAverageSpeed={setAverageSpeed}
+                maxFuel = {maxFuel}
+                setmaxFuel = {setmaxFuel}
               />
 
               <VoyageDetailsSection

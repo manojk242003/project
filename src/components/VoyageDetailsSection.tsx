@@ -61,6 +61,15 @@ const VoyageDetailsSection: React.FC<VoyageDetailsSectionProps> = ({
           </div>
 
           <div className="flex space-x-6 mb-4">
+          <label className="flex items-center cursor-pointer text-sm text-slate-600">
+              <input
+                type="radio"
+                checked={startInputType === 'port'}
+                onChange={() => setStartInputType('port')}
+                className="mr-2 accent-cyan-600"
+              />
+              Port Name
+            </label>
             <label className="flex items-center cursor-pointer text-sm text-slate-600">
               <input
                 type="radio"
@@ -71,15 +80,7 @@ const VoyageDetailsSection: React.FC<VoyageDetailsSectionProps> = ({
               Coordinates
             </label>
 
-            <label className="flex items-center cursor-pointer text-sm text-slate-600">
-              <input
-                type="radio"
-                checked={startInputType === 'port'}
-                onChange={() => setStartInputType('port')}
-                className="mr-2 accent-cyan-600"
-              />
-              Port Name
-            </label>
+            
           </div>
 
           {startInputType === 'coordinates' ? (
@@ -123,6 +124,15 @@ const VoyageDetailsSection: React.FC<VoyageDetailsSectionProps> = ({
           </div>
 
           <div className="flex space-x-6 mb-4">
+          <label className="flex items-center cursor-pointer text-sm text-slate-600">
+              <input
+                type="radio"
+                checked={destInputType === 'port'}
+                onChange={() => setDestInputType('port')}
+                className="mr-2 accent-orange-500"
+              />
+              Port Name
+            </label>
             <label className="flex items-center cursor-pointer text-sm text-slate-600">
               <input
                 type="radio"
@@ -133,15 +143,7 @@ const VoyageDetailsSection: React.FC<VoyageDetailsSectionProps> = ({
               Coordinates
             </label>
 
-            <label className="flex items-center cursor-pointer text-sm text-slate-600">
-              <input
-                type="radio"
-                checked={destInputType === 'port'}
-                onChange={() => setDestInputType('port')}
-                className="mr-2 accent-orange-500"
-              />
-              Port Name
-            </label>
+            
           </div>
 
           {destInputType === 'coordinates' ? (

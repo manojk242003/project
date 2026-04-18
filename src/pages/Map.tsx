@@ -32,7 +32,7 @@ export default function Map() {
           {/* ---------------- MAP SECTION ---------------- */}
           <div className="col-span-8 rounded-xl overflow-hidden border border-blue-800 shadow-lg">
             <iframe
-              src="public/test.html"
+              src={map_url}
               title="Voyage Route Map"
               className="w-full h-full"
               style={{ border: "none" }}
